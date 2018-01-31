@@ -1,12 +1,21 @@
 import psycopg2
 import psycopg2.extras
 import sys
-
+import json
 
 class DatabaseConnection:
 
-    def __init__(self,db_name,user,host,password):
-        self.__connect_str = "dbname="+db_name+" user="+user+" host="+host+" password="+password
+    def __init__(self):
+
+        with open('db_conf.json') as json_data_file:
+            data = json.load(json_data_file)
+
+        db = data['postgresql']['db']
+        user = data['postgresql']['user']
+        host = data['postgresql']['host']
+        password = data['postgresql']['password']
+
+        self.__connect_str = "dbname="+db+" user="+user+" host="+host+" password="+password
 
     def connect(self):
 
