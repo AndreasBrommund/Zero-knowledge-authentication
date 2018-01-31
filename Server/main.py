@@ -1,10 +1,11 @@
-from DB import DatabaseConnection
-import DB
+from FiatShamir import FiatShamir
 
 
 def main():
+    fs = FiatShamir()
 
-    db = DatabaseConnection()
+    fs = FiatShamir(index=fs.index)
+
 
 if __name__ == "__main__":
     main()
