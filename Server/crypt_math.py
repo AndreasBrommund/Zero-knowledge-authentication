@@ -25,7 +25,7 @@ def extended_euclidean_algorithm(a, b):
     y1 = 1
 
     while b > 0:
-        q = int(a / b)
+        q = a // b
         r = a - q * b
         x = x2 - q * x1
         y = y2 - q * y1
